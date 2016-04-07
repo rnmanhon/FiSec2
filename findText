@@ -1,0 +1,1 @@
+grep --exclude-dir={node_modules} --exclude=\*min* -rnw . -e $1

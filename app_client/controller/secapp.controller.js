@@ -93,7 +93,7 @@
         vm.postRemote = function() {
             console.log("secappController postRemote ...");
             appService.invokeRemote({
-                    action: 'GET',
+                    action: 'POST',
                     appAccessToken: vm.appAccessToken,
                     urlPrefix: vm.remoteApp.urlPrefix,
                     urlSuffix: vm.remoteApp.urlSuffix,

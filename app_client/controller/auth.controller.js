@@ -8,9 +8,9 @@
     //
     //    function userController($scope,  userService) {    
     //    function userController($scope,  userService) {    
-    authController.$inject = ['$scope', '$uibModal', 'userService', 'appService', 'roleService', 'authService'];
+    authController.$inject = ['$scope', '$uibModal', '$location', 'userService', 'appService', 'roleService', 'authService'];
 
-    function authController($scope, $uibModal, userService, appService, roleService, authService) {
+    function authController($scope, $uibModal, $location, userService, appService, roleService, authService) {
         console.log("inside authController ...");
 
         var vm = this;
@@ -33,6 +33,7 @@
                         console.log("data %j", data);
                         vm.domain_id = data.domain_id;
                         vm.policy_ver = (parseFloat(data.policy_ver) + 0.01).toFixed(2);
+                        vm.downloadPolicyUrl = 'http://' + $location.host() + ':8084/authzforce/domains/' + vm.domain_id + '/pap/policies/root/' + data.policy_ver;
                         doLoadApps();
                         //                    console.log("data %j", data);
                         //                    vm.domainID = data.domainID;

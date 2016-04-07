@@ -8,9 +8,9 @@
     //
     //    function userController($scope,  userService) {    
     //    function userController($scope,  userService) {    
-    secappController.$inject = ['$scope', '$location', '$uibModal', 'appService'];
+    secappController.$inject = ['$scope', '$location', '$rootScope', '$uibModal', 'appService'];
 
-    function secappController($scope, $location, $uibModal, appService) {
+    function secappController($scope, $location, $rootScope, $uibModal, appService) {
         console.log("inside secappController ...");
 
         var vm = this;
@@ -28,30 +28,34 @@
             strapline: 'SecApp'
         };
         vm.message = "";
+        vm.appAccessToken = appService.appAccessToken;
+        vm.authorizedApp = appService.authorizedApp;
 
         // init the appication token
         var init = function() {
-            vm.message = "loading access token ...";
-
             var queryParameter = $location.search()
             console.log("queryParameter %j ", queryParameter);
+            console.log("queryParameter length  " + Object.keys(queryParameter).length);
 
-            appService.loadAccessToken(queryParameter)
-                .success(function(data) {
-                    console.log("data %j", data);
-                    appService.appAccessToken = data.accessToken;
-                    vm.appAccessToken = appService.appAccessToken;
-                    appService.authorizedApp = data.authorizedApp;
-                    vm.authorizedApp = appService.authorizedApp;
-                    vm.message = "";
-                })
-                .error(function(e) {
-                    console.log(e);
-                    vm.message = e;
-                });
+            // skip initization for user switch tab
+            if (Object.keys(queryParameter).length != 0) {
+                vm.message = "loading access token ...";
 
-            // get application token
-
+                appService.loadAccessToken(queryParameter)
+                    .success(function(data) {
+                        console.log("data %j", data);
+                        appService.appAccessToken = data.accessToken;
+                        vm.appAccessToken = appService.appAccessToken;
+                        $rootScope.appAccessToken = appService.appAccessToken;
+                        appService.authorizedApp = data.authorizedApp;
+                        vm.authorizedApp = appService.authorizedApp;
+                        vm.message = "";
+                    })
+                    .error(function(e) {
+                        console.log(e);
+                        vm.message = e;
+                    });
+            }
 
         }
         init();

@@ -8,9 +8,9 @@
     //
     //    function userController($scope,  userService) {    
     //    function userController($scope,  userService) {    
-    authController.$inject = ['$scope', '$uibModal', '$location', 'userService', 'appService', 'roleService', 'authService'];
+    authController.$inject = ['$scope', '$window', '$uibModal', '$location', 'userService', 'appService', 'roleService', 'authService'];
 
-    function authController($scope, $uibModal, $location, userService, appService, roleService, authService) {
+    function authController($scope, $window, $uibModal, $location, userService, appService, roleService, authService) {
         console.log("inside authController ...");
 
         var vm = this;
@@ -113,5 +113,10 @@
                     //                    $scope.$apply();
                 });
         }; // addPolicy
+        
+        vm.showPolicyWindow = function() {
+            $window.open (vm.downloadPolicyUrl);
+        } // showPolicyWindow
+
     }; // authController
 })(); // function()

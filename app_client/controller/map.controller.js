@@ -10,8 +10,10 @@
         console.log("inside mapController ...");
 
         angular.extend($scope, {
-            defaults: {
-                scrollWheelZoom: false
+            myLocation: {
+                lng: 114.156296,
+                lat: 22.319480,
+                zoom: 14,
             }
         });
 

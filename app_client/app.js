@@ -4,6 +4,7 @@
 //    angular.module('fisecApp', ['ngRoute', 'ui.bootstrap']);
 //    angular.module('fisecApp', ['ngRoute', 'ui.bootstrap']).constant('_', _);
     angular.module('fisecApp', ['ngRoute', 'ui.bootstrap']).constant('_', window._);
+   angular.module('fisecApp', ['ngRoute', 'ui.bootstrap', 'leaflet-directive']).constant('_', window._);    
 //    angular.module('fisecApp', ['ngRoute', 'ui.bootstrap', 'ui-leaflet']).constant('_', window._);
     
 

@@ -55,11 +55,14 @@
                     })
                     .success(function(data) {
                         console.log("data %j", data);
+                        mapService.decodeRouteGeometory({
+                            route_geometry: data.route_geometry
+                        }).success(function(data) {
+                            
+                            
+                        });
+                                                   
 
-                        //                        var uibModalInstance = $uibModal.open({
-                        //                            templateUrl: '/view/routeModal.view.html',
-                        //                            controller: 'routeController as vm',
-                        //                        }); // $uibModal.open
                     })
                     .error(function(e) {
                         console.log(e);

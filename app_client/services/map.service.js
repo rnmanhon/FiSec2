@@ -19,8 +19,15 @@
             // loc = 52.503033, 13.420526 & loc = 52.516582, 13.429290 & instructions = true
         };
 
+        var decodeRouteGeometory = function(data) {
+            console.log("mapService decodeRouteGeometory ...");
+            console.log("data %j", data);
+            return $http.post('/api/decodeRouteGeometory', data);
+        }
+
         return {
             findRoute: findRoute,
+            decodeRouteGeometory: decodeRouteGeometory,
         };
     }
 

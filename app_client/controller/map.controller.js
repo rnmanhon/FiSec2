@@ -56,14 +56,22 @@
                     .success(function(data) {
                         console.log("data %j", data);
                         mapService.decodeRouteGeometory({
-                            route_geometry: data.route_geometry
-                        }).success(function(data) {
-                            
-                            
-                        });
-                                                   
-
-                    })
+                                route_geometry: data.route_geometry,
+                            })
+                            .success(function(data2) {
+                                console.log("data2 %j", data2);
+                                $scope.paths = {
+                                    p1: {
+                                        color: 'red',
+                                        weight: 8,
+                                        latlngs: data2.route,
+                                        message: "nearest path!",
+                                    },
+                                };
+                                console.log("$scope paths %j", $scope.paths);
+//                                $scope.$apply();
+                            }); // success decodeRouteGeometory
+                    }) // success findRoute
                     .error(function(e) {
                         console.log(e);
                         //                        vm.message = e;

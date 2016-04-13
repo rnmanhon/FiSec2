@@ -43,6 +43,7 @@ var appClientFiles = [
     'app_client/services/app.service.js',
     'app_client/services/role.service.js',
     'app_client/services/auth.service.js',
+    'app_client/services/map.service.js',
 //    'app_client/services/util.service.js',
     'app_client/common/directives/navigation/navigation.directive.js',
     'app_client/common/directives/footerGeneric/footerGeneric.directive.js',

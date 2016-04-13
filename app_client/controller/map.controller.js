@@ -34,7 +34,7 @@
                 vm.markers.push({
                     lat: leafEvent.latlng.lat,
                     lng: leafEvent.latlng.lng,
-                    message: "My Route start at here!"
+                    message: "My Route start at lat: " + leafEvent.latlng.lat + " long: " + leafEvent.latlng.lng
                 });
             } else if (typeof(vm.endPos) == "undefined") {
                 vm.endPos = {
@@ -44,7 +44,7 @@
                 vm.markers.push({
                     lat: leafEvent.latlng.lat,
                     lng: leafEvent.latlng.lng,
-                    message: "My Route end at here!"
+                    message: "My Route end at lat: " + leafEvent.latlng.lat + " long: " + leafEvent.latlng.lng
                 })
             } else {
                 delete vm.startPos;
@@ -58,7 +58,7 @@
                 vm.markers.push({
                     lat: leafEvent.latlng.lat,
                     lng: leafEvent.latlng.lng,
-                    message: "My Route start at here!"
+                    message: "My Route start at lat: " + leafEvent.latlng.lat + " long: " + leafEvent.latlng.lng
                 });
             } // if vm.startPos and vm.endPos
 

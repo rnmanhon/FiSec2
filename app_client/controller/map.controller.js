@@ -19,6 +19,8 @@
         };
         vm.events = {};
         vm.markers = new Array();
+        vm.paths = {};
+
 
 
         $scope.$on("leafletDirectiveMap.click", function(event, args) {
@@ -60,16 +62,17 @@
                             })
                             .success(function(data2) {
                                 console.log("data2 %j", data2);
-                                $scope.paths = {
+
+                                vm.paths = {
                                     p1: {
-                                        color: 'red',
-                                        weight: 8,
+                                        color: 'blue',
+                                        weight: 4,
                                         latlngs: data2.route,
                                         message: "nearest path!",
                                     },
                                 };
                                 console.log("$scope paths %j", $scope.paths);
-//                                $scope.$apply();
+                                //                                $scope.$apply();
                             }); // success decodeRouteGeometory
                     }) // success findRoute
                     .error(function(e) {

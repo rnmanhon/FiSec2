@@ -84,6 +84,7 @@
                 delete vm.startPos;
                 delete vm.endPos;
                 vm.markers = new Array();
+                vm.paths = {};
 
                 vm.startPos = {
                     lat: leafEvent.latlng.lat,

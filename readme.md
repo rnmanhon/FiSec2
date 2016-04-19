@@ -1,15 +1,15 @@
-Install bower
+Install bower.
 ```
 sudo npm install bower -g
 ```
 
-install nodejs package and dependency from bower
+Install nodejs package and dependency from bower.
 ```
 npm install
 bower install
 ```
 
-run applicaiton through nodemon
+Run applicaiton through nodemon.
 ```
 nodemon
 ```
